@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 const PORT = 3000;
 
-app.get('/checking', function(req, res){
+app.get('/', function(req, res){
   res.json({
      "Tutorial": "Welcome to the Node express JWT Tutorial"
   });
