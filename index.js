@@ -7,7 +7,7 @@ const PORT = 3000;
 
 
 app.get('/', function(req, res){
-  res.render('index.ejs');
+  res.render('index.js');
 });
 
 app.listen(PORT, function(){
