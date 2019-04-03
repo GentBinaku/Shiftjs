@@ -1,7 +1,10 @@
-var http = require('http');
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
 
-var server = http.createServer(function(req, res) {
-res.writeHead(200);
-res.end('Hi everybody!');
+
+const PORT = 3000;
+
+app.listen(PORT, function(){
+   console.log('Server is running on Port',PORT);
 });
-server.listen(8080);
