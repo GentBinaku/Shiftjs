@@ -4,7 +4,7 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-       "start": "nodemon server"
+        "start": "nodemon server"
     },
     "author": "",
     "license": "ISC",
@@ -12,7 +12,9 @@
         "body-parser": "^1.18.3",
         "express": "^4.16.4",
         "jsonwebtoken": "^8.5.1",
-        "mongoose": "^5.4.21"
+        "mongodb": "^3.2.2",
+        "mongoose": "^5.4.21",
+        "nconf": "^0.10.0"
     },
     "devDependencies": {
         "nodemon": "^1.18.10"
