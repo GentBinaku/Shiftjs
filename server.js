@@ -7,7 +7,7 @@ var MongoStore = require('connect-mongo')(session);
 
 
 //connect to MongoDB
-mongoose.connect('mongodb://mongodb-servers-2-arbiters-vm-0/users?replicaSet=rs0');
+mongoose.connect('mongodb+srv://root:root@cluster0-mw0gr.gcp.mongodb.net/test?retryWrites=true');
 var db = mongoose.connection;
 
 //handle mongo error
