@@ -3,13 +3,13 @@
 const mongodb = require('mongodb');
 const http = require('http');
 const nconf = require('nconf');
-let uri = 'mongodb://cluster0-shard-00-00-mw0gr.gcp.mongodb.net:27017,cluster0-shard-00-01-mw0gr.gcp.mongodb.net:27017/test?replicaSet=Cluster0-shard-0';
+let uri = 'mongodb://35.195.208.33:27017,35.187.114.130:27017/users?replicaSet=rs0';
 if (nconf.get('mongoDatabase')) {
   uri = `${uri}/${nconf.get('mongoDatabase')}`;
 }
 console.log(uri);
 
-mongodb.MongoClient.connect(uri,{ useNewUrlParser: true } ,(err, db) => {
+mongodb.MongoClient.connect(uri, ,(err, db) => {
   if (err) {
     throw err;
   }
