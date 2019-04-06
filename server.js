@@ -1,59 +1,21 @@
-'use strict';
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
 
-const mongodb = require('mongodb');
-const http = require('http');
-const nconf = require('nconf');
-let uri = 'mongodb://35.195.208.33:27017,35.187.114.130:27017/users?replicaSet=rs0';
-if (nconf.get('mongoDatabase')) {
-  uri = `${uri}/${nconf.get('mongoDatabase')}`;
-}
-console.log(uri);
+// Connection URL
+const url = 'mongodb://35.195.208.33:27017';
 
-mongodb.MongoClient.connect(uri,(err, db) => {
-  if (err) {
-    throw err;
-  }
+// Database Name
+const dbName = 'users';
 
-  // Create a simple little server.
-  http.createServer((req, res) => {
-    if (req.url === '/_ah/health') {
-      res.writeHead(200, {
-        'Content-Type': 'text/plain'
-      });
-      res.write('OK');
-      res.end();
-      return;
-    }
+// Create a new MongoClient
+const client = new MongoClient(url);
 
-    const collection = db.collection('Messages');
-    var datetime = new Date();
-    const msg = {
-      msgDescription: '\nHello World received on ' + datetime
-    };
+// Use connect method to connect to the Server
+client.connect(function(err) {
+  assert.equal(null, err);
+  console.log("Connected successfully to server");
 
-    collection.insert(msg, (err) => {
-      if (err) {
-        throw err;
-      }
+  const db = client.db(dbName);
 
-      // push out a range
-      let msglist = '';
-      collection.find().toArray((err, data) => {
-        if (err) {
-          throw err;
-        }
-        data.forEach((msg) => {
-          msglist += `${msg.msgDescription}; `;
-        });
-
-        res.writeHead(200, {
-          'Content-Type': 'text/plain'
-        });
-res.write('Messages received so far:\n');
-        res.end(msglist);
-      });
-    });
-  }).listen(process.env.PORT || 8080, () => {
-    console.log('started web process');
-  });
+  client.close();
 });
