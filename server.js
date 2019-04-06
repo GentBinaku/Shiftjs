@@ -9,7 +9,7 @@ if (nconf.get('mongoDatabase')) {
 }
 console.log(uri);
 
-mongodb.MongoClient.connect(uri, ,(err, db) => {
+mongodb.MongoClient.connect(uri,(err, db) => {
   if (err) {
     throw err;
   }
