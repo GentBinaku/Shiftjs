@@ -7,14 +7,16 @@ FOR mongo authentication
 
 db.createUser(
   {
-    user: "root",
-    pwd: "root",
+    user: "root1",
+    pwd: "root1",
     roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
   }
 )
 
 DB path:
 /mnt/mongodb/db
+
+mongod --dbpath /mnt/mongodb/db
 
 Database with authentication set up 
 Can anybody connect to the server via SSH or telnet I suppose 
