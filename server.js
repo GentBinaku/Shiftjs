@@ -4,7 +4,6 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
-
 //connect to MongoDB
 mongoose.connect('mongodb://root:root@mongodb-6-servers-vm-1:27017,mongodb-6-servers-vm-0:27017/admin?replicaSet=rs0',{ useNewUrlParser: true });
 var db = mongoose.connection;

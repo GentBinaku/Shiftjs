@@ -25,3 +25,8 @@ Let me try from my local pc
 
 connection path
 mongodb://root:root@35.195.208.33:27017,35.187.114.130:27017/users?replicaSet=rs0
+
+Tried to define env file
+
+
+Going to use Passport with connect-roles for the users groups
