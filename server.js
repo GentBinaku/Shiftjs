@@ -5,7 +5,7 @@ var mongoose = require('mongoose')
 var session = require('express-session')
 var MongoStore = require('connect-mongo')(session)
 
-mongoose.connect('mongodb://root:root@35.195.208.33:27017,35.187.114.130:27017/user?replicaSet=rs0')
+mongoose.connect('mongodb://root:root@35.195.208.33:27017,35.187.114.130:27017/users?replicaSet=rs0')
 var db = mongoose.connection;
 
 //handle mongo error

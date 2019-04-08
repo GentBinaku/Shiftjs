@@ -22,4 +22,4 @@ Let me try from my local pc
 
 
 connection path
-mongodb://root:root@35.195.208.33:27017,35.187.114.130:27017/user?replicaSet=rs0
+mongodb://root:root@35.195.208.33:27017,35.187.114.130:27017/users?replicaSet=rs0
