@@ -1,3 +1,25 @@
 NODE JS MONGO DB finally did it 
 
 can start programing the login page should have administarve rights to tell me which user is logged in
+
+
+FOR mongo authentication
+
+db.createUser(
+  {
+    user: "root",
+    pwd: "root",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+  }
+)
+
+DB path:
+/mnt/mongodb/db
+
+Database with authentication set up 
+Can anybody connect to the server via SSH or telnet I suppose 
+Let me try from my local pc
+
+
+connection path
+mongodb://root:root@35.195.208.33:27017,35.187.114.130:27017/user?replicaSet=rs0

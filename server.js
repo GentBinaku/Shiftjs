@@ -1,21 +1,15 @@
-const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
+var express = require('express')
+var app = express()
+var bodyParser = require('body-parser')
+var mongoose = require('mongoose')
+var session = require('express-session')
+var MongoStore = require('connect-mongo')(session)
 
-// Connection URL
-const url = 'mongodb://35.195.208.33:27017';
+mongoose.connect('mongodb://root:root@35.195.208.33:27017,35.187.114.130:27017/user?replicaSet=rs0')
+var db = mongoose.connection;
 
-// Database Name
-const dbName = 'users';
-
-// Create a new MongoClient
-const client = new MongoClient(url);
-
-// Use connect method to connect to the Server
-client.connect(function(err) {
-  assert.equal(null, err);
-  console.log("Connected successfully to server");
-
-  const db = client.db(dbName);
-
-  client.close();
+//handle mongo error
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+  // we're connected!
 });
